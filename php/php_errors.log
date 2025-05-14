@@ -1,0 +1,16 @@
+[05-May-2025 18:27:21 UTC] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: string + string in C:\MAMP\htdocs\Гостиница администратор\php\booking_process.php:17
+Stack trace:
+#0 {main}
+  thrown in C:\MAMP\htdocs\Гостиница администратор\php\booking_process.php on line 17
+[05-May-2025 18:29:05 UTC] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: string + string in C:\MAMP\htdocs\Гостиница администратор\php\booking_process.php:17
+Stack trace:
+#0 {main}
+  thrown in C:\MAMP\htdocs\Гостиница администратор\php\booking_process.php on line 17
+[05-May-2025 18:34:33 UTC] PHP Warning:  Undefined variable $admin_id in C:\MAMP\htdocs\Гостиница администратор\php\booking.php on line 108
+[05-May-2025 18:34:37 UTC] PHP Warning:  Undefined variable $admin_id in C:\MAMP\htdocs\Гостиница администратор\php\booking.php on line 108
+[05-May-2025 18:34:54 UTC] PHP Warning:  Undefined variable $admin_id in C:\MAMP\htdocs\Гостиница администратор\php\booking.php on line 108
+[05-May-2025 18:36:46 UTC] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: string + string in C:\MAMP\htdocs\Гостиница администратор\php\booking_process.php:17
+Stack trace:
+#0 {main}
+  thrown in C:\MAMP\htdocs\Гостиница администратор\php\booking_process.php on line 17
+[05-May-2025 18:36:59 UTC] PHP Warning:  Undefined variable $admin_id in C:\MAMP\htdocs\Гостиница администратор\php\booking.php on line 108

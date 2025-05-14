@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELEVATE админ</title>
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/flaticon.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+</head>
+
+<body>
+<!-- Модальное окно входа для управляющего -->
+
+    <div id="loginOverlay" class="login-overlay">
+        <div class="login-container">
+            <div class="login-logo">
+                <img src="img/logo.png" alt="ELEVATE">
+            </div>
+            
+            <!-- Вкладки -->
+            <ul class="nav nav-tabs" id="authTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="login-tab" type="button">Вход</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="register-tab" type="button">Регистрация</button>
+                </li>
+            </ul>
+            
+            <!-- Форма входа -->
+            <form id="loginForm" class="auth-form active">
+                <div class="form-group mb-3">
+                    <input type="text" class="form-control" id="loginUsername" name="login" placeholder="Логин" required>
+                    <div class="invalid-feedback"></div>
+                </div>
+                <div class="form-group mb-3">
+                    <input type="password" class="form-control" id="loginPassword" name="pass" placeholder="Пароль" required>
+                    <div class="invalid-feedback"></div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    <i class="fas fa-sign-in-alt"></i> Войти
+                </button>
+                <button type="button" id="managerLogoutBtn" class="btn btn-danger btn-block mt-3" style="display: none;">
+                    <i class="fas fa-sign-out-alt"></i> Выйти как управляющий
+                </button>
+                <button type="button" id="openManagerLogin" class="btn btn-secondary btn-block mt-3">
+                    <i class="fas fa-user-shield"></i> Войти как управляющий
+                </button>
+            </form>
+            
+            <!-- Форма регистрации -->
+            <form id="registerForm" class="auth-form">
+                <div class="row">
+                    <div class="col-md-6 form-group mb-3">
+                        <input type="text" class="form-control" id="regLastName" name="lastname" placeholder="Фамилия" required>
+                        <div class="invalid-feedback"></div>
+                    </div>
+                   
+                    <div class="col-md-6 form-group mb-3">
+                        <input type="text" class="form-control" id="regFirstName" name="name" placeholder="Имя" required>
+                        <div class="invalid-feedback"></div>
+                    </div>
+                    <div class="col-md-6 form-group mb-3">
+                        <input type="text" class="form-control" id="regOtch" name="otch" placeholder="Отчество" required>
+                        <div class="invalid-feedback"></div>
+                    </div>
+                </div>
+                <div class="form-group mb-3">
+                    <input type="text" class="form-control" id="regPhone" name="number" placeholder="Телефон" required>
+                    <div class="invalid-feedback"></div>
+                </div>
+                <div class="form-group mb-3">
+                    <input type="text" class="form-control" id="regLogin" name="login" placeholder="Логин" required>
+                    <div class="invalid-feedback"></div>
+                </div>
+                <div class="form-group mb-3">
+                    <input type="password" class="form-control" id="regPassword" name="pass" placeholder="Пароль" required>
+                    <div class="invalid-feedback"></div>
+                </div>
+                <button type="submit" class="btn btn-success btn-block">
+                    <i class="fas fa-user-plus"></i> Зарегистрироваться
+                </button>
+            </form>
+            
+            <div id="authError" class="alert alert-danger mt-3" style="display: none;"></div>
+        </div>
+    </div>
+    <div id="managerLoginModal" class="modal fade" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+              <h5 class="modal-title"><i class="fas fa-lock me-2"></i> Вход для управляющего</h5>
+            </div>
+            <div class="modal-body">
+              <form id="managerLoginForm">
+                <div class="mb-3">
+                  <label for="managerUsername" class="form-label">Логин управляющего</label>
+                  <input type="text" class="form-control" id="managerUsername" required>
+                </div>
+                <div class="mb-3">
+                  <label for="managerPassword" class="form-label">Пароль</label>
+                  <input type="password" class="form-control" id="managerPassword" required>
+                </div>
+                <div class="d-grid gap-2">
+                  <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-sign-in-alt me-2"></i> Войти как управляющий
+                  </button>
+                </div>
+              </form>
+              <div id="managerLoginError" class="alert alert-danger mt-3" style="display: none;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+
+    <div class="page-wrapper chiller-theme toggled">
+        <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+          <i class="fas fa-bars"></i>
+        </a>
+        
+        <nav id="sidebar" class="sidebar-wrapper">
+          <div class="sidebar-content">
+            <div class="sidebar-brand">
+              <a href="#">МЕНЮ</a>
+              <div id="close-sidebar"><i class="fas fa-times"></i></div>
+            </div>
+            <!-- sidebar-brand -->
+            <div class="sidebar-header">
+              <div class="user-pic" style="color:#fff;">
+                <i class="fa fa-user-circle fa-4x" aria-hidden="true"></i>
+              </div>
+              <div class="user-info">
+                <span class="user-name"> <strong>Фамилия Имя</strong></span>
+                <span class="user-role">Администратор</span>
+                <span class="user-status"><i class="fa fa-circle"></i> <span>Онлайн</span></span>
+              </div>
+            </div>
+            <div class="sidebar-menu">
+              <ul>
+                <li class="sidebar-dropdown" id="menu-booking">
+                  <a href="#"><i class="fa fa-gear"></i><span>Бронирование</span></a>
+                  <div class="sidebar-submenu">
+                    <ul>
+                      <li><a href="#">Бронирование номеров</a></li>
+                      <li><a href="#">Текущие заселения </a></li>
+                      <li><a href="#">Предстоящие выселения</a></li>
+                      <li><a href="#">История бронирования гостей</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="sidebar-dropdown" id="menu-client">
+                  <a href="#">
+                    <i class='fas fa-users me-2'></i><span>Клиенты</span></a>
+                  <div class="sidebar-submenu">
+                    <ul>
+                      <li><a href="#">Список всех клиентов</a></li>
+                      <li><a href="#">Поиск клиента</a></li>
+                      <li><a href="#">Регистрация нового клиента</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="sidebar-dropdown" id="menu-rooms">
+                  <a href="#"><i class="fa fa-bed"></i><span>Номера</span></a>
+                  <div class="sidebar-submenu">
+                    <ul>
+                      <li><a href="#">Картотека номеров</a></li>
+                      <li><a href="#">Календарь занятости</a></li>
+                      <li><a href="#">Статистика по категориям номеров</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="sidebar-dropdown" id="menu-analytic">
+                  <a href="#"><i class="fas fa-chart-bar me-2"></i><span>Отчеты и аналитика</span></a>
+                  <div class="sidebar-submenu">
+                    <ul>
+                      <li><a href="#">Загрузка номеров</a></li>
+                      <li><a href="#">Финансовая отчётность</a></li>
+                      <li><a href="#">Статистика по клиентам</a></li>
+                    </ul>
+                  </div>
+                </li>
+
+            </div>
+            <!-- sidebar-menu  -->
+          </div>
+          <!-- sidebar-content  -->
+          <div class="sidebar-footer">
+            <a href="#" id="logout-btn">
+              <i class="fa fa-power-off"></i>
+            </a>
+          </div>
+          <!-- sidebar-footer  -->
+        </nav>
+
+
+
+
+
+        <!-- Контент  -->
+        <main class="page-content">
+            <header class="header-section">
+                <div class="menu-item">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-2">
+                                <div class="logo">
+                                    <a href="./index.html">
+                                        <img src="img/logo.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+
+    <div class="main-content">
+    <section class="booking active">
+
+          <div class="container-fluid" class="mt-5">
+            <div class="d-flex justify-content-between align-items-center mb-4">           
+                <h2> <i class="fa fa-gear me-2"></i>Бронирование</h2>
+                <button class="btn btn-primary btn-booking">
+                    <i class="fas fa-plus me-2"></i>Новое бронирование
+                </button>
+            </div>
+            <div class="card-booking noactive">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0"><i class="fas fa-calendar-check me-2"></i>Форма бронирования</h4>
+                </div>
+                <div class="card-body">
+                    <form id="booking-form" method="POST" action="booking.php">
+                        <!-- Форма для бронирования -->
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label for="guest-name" class="form-label">ФИО гостя <span class="text-danger">*</span></label>
+                                    <input type="text" name = "guest-name" class="form-control" id="guest-name" required>
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                                
+                                <div class="form-group mb-3">
+                                    <label for="phone" class="form-label">Телефон <span class="text-danger">*</span></label>
+                                    <input type="tel" name = "phone" class="form-control" id="phone" placeholder="+7 (___) ___-__-__" required>
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                                
+                                <div class="form-group mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" name = "email" class="form-control" id="email">
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                
+                                <div class="form-group mb-3">
+                                    <label for="document-number" class="form-label">Номер паспорта <span class="text-danger">*</span></label>
+                                    <input type="text" name = "document-number" class="form-control" id="document-number" required>
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                                
+                                <div class="form-group mb-3">
+                                    <label for="birthdate" class="form-label">Дата рождения</label>
+                                    <input type="date" name = "birthdate" class="form-control" id="birthdate">
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Даты и номер -->
+                        <div class="row mb-4">
+
+                                                
+                        <div class="col-md-3">
+                            <div class="form-group mb-3 mt-4">
+                                <select class="form-select" id="adults_count" name="adults_count" required>
+                                    <option value="" selected>Выберите кол-во взрослых</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group mb-3">
+                                    <label for="check-in" class="form-label">Дата заезда <span class="text-danger">*</span></label>
+                                    <input type="date" name = "check-in" class="form-control" id="check-in" required>
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-4">
+                                <div class="form-group mb-3">
+                                    <label for="check-out" class="form-label">Дата выезда <span class="text-danger">*</span></label>
+                                    <input type="date" name = "check-out" class="form-control" id="check-out" required>
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+
+                        <!-- Добавьте этот блок после блока с дополнительными услугами -->
+                        <div class="mb-4" id="children-section">
+                            <h5 class="mb-3"><i class="fas fa-child me-2"></i>Дети</h5>
+                            
+                            <div class="form-group mb-3">
+                                <label for="children-count" class="form-label">Количество детей</label>
+                                <select class="form-select" id="children-count" name="children_count">
+                                    <option value="0" selected>Нет детей</option>
+                                    <option value="1">1 ребенок</option>
+                                    <option value="2">2 ребенка</option>
+                                </select>
+                            </div>
+                            
+                            <div id="children-fields-container">
+                                <!-- Здесь будут динамически добавляться поля для детей -->
+                            </div>
+                        </div>
+
+                            <div class="row mb-3">
+                                <div class="col-12">
+                                    <button id="find-rooms-btn" class="btn btn-primary">
+                                        <i class="fas fa-search me-2"></i>Найти номера
+                                    </button>
+                                </div>
+                            </div> 
+
+
+                            <div class="mb-4" id="available-rooms-section">
+                                <h5 class="mb-3"><i class="fas fa-bed me-2"></i>Доступные номера</h5>
+                                <div id="available-rooms" class="row">
+                                    <div class="col-12">
+                                        <div class="alert alert-info">Нажмите "Найти номера" для поиска доступных номеров</div>
+                                    </div>
+                                </div>
+                            </div>
+                               <!-- Дополнительные услуги -->
+                        <div class="mb-4">
+                            <h5 class="mb-3"><i class="fas fa-concierge-bell me-2"></i>Дополнительные услуги</h5>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" name="services" value="1" id="travel">
+                                        <label class="form-check-label" for="travel">
+                                            План путешествий (+500 ₽)
+                                        </label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" name="services" value="2" id="breakfast">
+                                        <label class="form-check-label" for="breakfast">
+                                            Завтрак (+600 ₽)
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" name="services" value="3" id="bed">
+                                        <label class="form-check-label" for="bed">
+                                            Детская кроватка (+800 ₽)
+                                        </label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" name="services" value="4" id="prachechna">
+                                        <label class="form-check-label" for="prachechna">
+                                            Прачечная (+400 ₽)
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" name="services" value="5" id="parking">
+                                        <label class="form-check-label" for="parking">
+                                            Парковка (+600 ₽)
+                                        </label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" name="services" value="6" id="Bar">
+                                        <label class="form-check-label" for="Bar">
+                                            Бар (+500 ₽)
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="discount-type" class="form-label">Выберите скидку</label>
+                            <select class="form-select" id="discount-type" name="discount-type">
+                                <option value="0" selected>Без скидки</option>
+                                <option value="1">Полная оплата (2%)</option>
+                                <option value="2">Льготный документ (3%)</option>
+                            </select>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="payment-option" class="form-label">Способ оплаты</label>
+                            <select class="form-select" id="payment-option" name="payment-option">
+                                <option value="оплачено полностью" selected>Оплатить полностью</option>
+                                <option value="предоплата 50%">Оплатить 50%</option>
+                            </select>
+                        </div>
+                                                
+                        
+                        <!-- Итоговая стоимость -->
+                        <div class="alert alert-info mb-4">
+                            <div class="d-flex justify-content-between">
+                                <h5 class="mb-0">Итого к оплате за номер:</h5>
+                                <h4 class="mb-0" id="total-price-room">0 ₽</h4>
+                            </div>
+                        </div>
+                        <div class="alert alert-info mb-4">
+                            <div class="d-flex justify-content-between">
+                                <h5 class="mb-0">Итого к оплате за услуги:</h5>
+                                <h4 class="mb-0" id="total-price-services">0 ₽</h4>
+                            </div>
+                        </div>
+                        
+                        <!-- Кнопки отправки -->
+                        <div class="d-flex justify-content-between">
+                            <button type="submit" class="btn btn-success">
+                                <i class="fas fa-check me-2"></i>Подтвердить бронирование
+                            </button>
+                           
+                        </div>
+                    
+                    </form>
+    
+                </div>
+            </div>
+
+           <div class="row">
+    <div class="col-md-3">
+        <div class="card h-100">
+            <div class="card-body">
+                <h6 class="card-subtitle mb-2 text-muted">Свободные номера</h6>
+                <h3 class="card-title" id="count-rooms">24</h3>
+                <p class="card-text text-success"><small>+2 за сегодня</small></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card h-100">
+            <div class="card-body">
+                <h6 class="card-subtitle mb-2 text-muted">Заселения сегодня</h6>
+                <h3 class="card-title" id="checkinToday">12</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card h-100">
+            <div class="card-body">
+                <h6 class="card-subtitle mb-2 text-muted">Выселения сегодня</h6>
+                <h3 class="card-title" id="checkoutToday">8</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card h-100">
+            <div class="card-body">
+                <h6 class="card-subtitle mb-2 text-muted">Занятость</h6>
+                <h3 class="card-title" id="busy">78%</h3>
+                <p class="card-text text-danger"><small>Высокая нагрузка</small></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+            
+            <ul class="nav nav-tabs mt-4" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <button class="nav-link active" id="booking-tab" data-bs-toggle="tab" data-bs-target="#booking" type="button">Бронирование</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" id="current-tab" data-bs-toggle="tab" data-bs-target="#current" type="button">Заселения</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" id="departures-tab" data-bs-toggle="tab" data-bs-target="#departures" type="button">Выселения</button>
+                </li>
+            </ul>
+            
+            <div class="tab-content p-3 border border-top-0 rounded-bottom" id="myTabContent">
+                <div class="tab-pane fade show active" id="booking" role="tabpanel">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="me-4">
+                            <label for="date-from" class="form-label">С:</label>
+                            <input type="date" class="form-control form-control-sm" id="date-from">
+                        </div>
+                        <div class="me-4">
+                            <label for="date-to" class="form-label">По:</label>
+                            <input type="date" class="form-control form-control-sm" id="date-to">
+                        </div>
+                        <button class="btn btn-primary btn-sm" id="sort-btn">Сортировать</button>
+                    </div>
+                    <div class="d-flex justify-content-between mb-3">
+                        <div class="btn-group">
+                            <button class="btn btn-outline-secondary active filter-btn" data-status="all">Все</button>
+                            <button class="btn btn-outline-secondary filter-btn" data-status="подтверждено">Подтвержденные</button>
+                            <button class="btn btn-outline-secondary filter-btn" data-status="ожидание">Ожидающие</button>
+                            <button class="btn btn-outline-secondary filter-btn" data-status="отменено">Отмененные</button>
+                        </div>
+
+                    </div>
+    
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Гость</th>
+                                    <th>Номер</th>
+                                    <th>Дата заезда</th>
+                                    <th>Дата выезда</th>
+                                    
+                                    <th>Статус</th>
+                                    <th>Действия</th>
+                                </tr>
+                            </thead>
+                            <tbody id="bookings-table-body">
+                                <!-- Данные будут загружены через AJAX -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                
+                <div class="tab-pane fade" id="current" role="tabpanel">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="me-4">
+                            <label for="date-from2" class="form-label">С:</label>
+                            <input type="date" class="form-control form-control-sm" id="date-from2">
+                        </div>
+                        <div class="me-4">
+                            <label for="date-to2" class="form-label">По:</label>
+                            <input type="date" class="form-control form-control-sm" id="date-to2">
+                        </div>
+                        <button class="btn btn-primary btn-sm" id="sort-btn2">Сортировать</button>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Номер</th>
+                                    <th>Гость</th>
+                                    <th>Заселение</th>
+                                    <th>Выезд</th>
+                                    <th>Дней</th>
+                                    <th>Статус</th>
+                                    <th>Действия</th>
+                                </tr>
+                            </thead>
+                            <tbody id="current-checkins-body">
+                                <!-- Данные будут загружены через JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="departures" role="tabpanel">
+                    <div id="today-departures-container">
+                      <!-- Сюда будут загружаться карточки выселений -->
+                      <div class="alert alert-warning">
+                        <i class="fas fa-exclamation-circle me-2"></i>
+                        <span id="departures-counter">Сегодня нет выселений</span>
+                      </div>
+                    </div>
+                  </div>
+               
+      
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <section class="clients">
+        <div class="container-fluid mt-5">
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2><i class="fas fa-users me-2"></i> Управление клиентами</h2>
+            <button class="btn btn-primary" id="addClientModalBtn">
+              <i class="fas fa-plus me-2"></i>Добавить клиента
+            </button>
+          </div>
+      
+
+            <!-- Модальное окно добавления/редактирования клиента -->
+<div class="modal" id="addClientModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="clientForm">
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">ФИО</label>
+                        <input type="text" class="form-control" name="full_name" required>
+                        <div class="invalid-feedback"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Дата рождения</label>
+                        <input type="date" class="form-control" name="date">
+                        <div class="invalid-feedback"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Номер паспорта</label>
+                        <input type="pasport" class="form-control" name="pasport">
+                        <div class="invalid-feedback"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Телефон</label>
+                        <input type="tel" class="form-control" name="phone" required>
+                        <div class="invalid-feedback"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" name="email">
+                        <div class="invalid-feedback"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Дети</label>
+                        <div id="childrenContainer"></div>
+                        <button type="button" class="btn btn-sm btn-outline-primary mt-2" id="addChildBtn">Добавить ребенка</button>
+                    </div>
+                   
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Сохранить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="childrenModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Дети клиента</h5>
+            </div>
+            <div class="modal-body">
+                <ul class="children-list list-group"></ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row mb-4">
+    <div class="col-md-6">
+        <div class="input-group">
+            <span class="input-group-text"><i class="fas fa-search"></i></span>
+            <input type="text" class="form-control" id="clientSearch" placeholder="Поиск по ФИО, телефону, email">
+            <button class="btn btn-outline-secondary" type="button">Поиск</button>
+        </div>
+    </div>
+</div>
+            
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <span>Список клиентов</span>
+                    <small class="text-muted">Всего: 127</small>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Клиент</th>
+                                    <th>Контакты</th>
+                                    <th>Последнее посещение</th>
+                                    <th>Количество посещений</th>
+                                    <th>Статус</th>
+                                    <th>Действия</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>
+                                        Иванов Петр Сергеевич
+                                    </td>
+                                    <td>
+                                        <div>+7 (912) 345-67-89</div>
+                                        <small class="text-muted">ivanov@example.com</small>
+                                    </td>
+                                    <td>15.05.2023</td>
+                                    <td>5</td>
+                                    <td><span class="badge bg-success">Постоянный</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-outline-primary" title="Редактировать">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-info" title="История">
+                                            <i class="fas fa-history"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-warning view-children" data-client-id="1" title="Дети">
+                                            <i class="fas fa-child"></i>
+                                        </button>
+                                    </td>
+                                    
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Модальное окно истории клиента -->
+<div class="modal fade" id="historyModal" tabindex="-1" >
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">История заселений клиента</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="table-responsive">
+            <table class="table history-table">
+              <thead>
+                <tr>
+                  <th>Дата заселения</th>
+                  <th>Дата выселения</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Строки будут добавляться динамически -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    </section>
+
+
+
+
+    <section class="rooms">
+        <div class="container-fluid" class="mt-5">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2><i class="fas fa-bed me-2"></i> Управление номерами</h2><hr>
+
+            </div>
+            <div class="modal fade" id="addRoomModal" tabindex="-1" aria-labelledby="modalRoomTitle" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <form id="roomForm">
+                            <div class="modal-body">
+                                <div class="row g-3">
+                                    <!-- Основная информация -->
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="roomNumber" class="form-label">Номер комнаты</label>
+                                            <input type="text" class="form-control" id="roomNumber" name="number" disabled>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="roomCategory" class="form-label">Категория</label>
+                                            <input type="text" class="form-control" id="roomCategory" name="category" disabled>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="roomArea" class="form-label">Площадь</label>
+                                            <input type="text" class="form-control" id="roomArea" name="area" disabled>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label class="form-label">Статус</label>
+                                            <div class="status-checkboxes" >
+                                                <!-- Чекбоксы статуса будут добавлены динамически -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="roomCapacity" class="form-label">Вместимость</label>
+                                            <input type="text" class="form-control" id="roomCapacity" name="capacity" disabled>
+                                           
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="roomPrice" class="form-label">Цена за ночь (₽)</label>
+                                            <input type="number" class="form-control" id="roomPrice" name="price" min="0" required>
+                                            <div class="invalid-feedback"></div>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label class="form-label">Удобства</label>
+                                            <div class="amenities-checkboxes">
+                                                <!-- Чекбоксы будут добавлены динамически -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">Сохранить</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <ul class="nav nav-tabs card-header-tabs">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="list" data-bs-toggle="tab">Список номеров</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="calendar" data-bs-toggle="tab">Календарь занятости</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active" id="rooms-list">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>№</th>
+                                                    <th>Категория</th>
+                                                    <th>Статус</th>
+                                                    <th>Вместимость</th>
+                                                    <th>Площадь</th>
+                                                    <th>Стоимость</th>
+                                                    <th>Удобства</th>
+                                                    <th>Действия</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>205</td>
+                                                    <td>Люкс</td>
+                                                    <td>
+                                                        <span class="room-status room-status-free"></span>
+                                                        Свободен
+                                                    </td>
+                                                    <td>2 человека</td>
+                                                    <td>5 500 ₽/ночь</td>
+                                                    <td>
+                                                        <span class="badge bg-light text-dark me-1">WiFi</span>
+                                                        <span class="badge bg-light text-dark me-1">Кондиционер</span>
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-primary">
+                                                            <i class="fas fa-edit"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="rooms-calendar">
+
+                                    
+                                    <div id="rooms-calendar-view">
+                                        <div class="calendar-header">
+                                            <div class="calendar-corner">Номер</div>
+                                            <!-- Дни недели будут добавлены динамически -->
+                                        </div>
+                                        <div class="calendar-body">
+                                            <!-- Строки с номерами и бронированиями будут добавлены динамически -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            Статистика по категориям
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <h6>Люкс <small class="text-muted float-end">8 из 12 занято</small></h6>
+                                <div class="progress">
+                                    <div class="progress-bar bg-success" style="width: 66%"></div>
+                                </div>
+                            </div>
+                            <!-- Другие категории -->
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="analytic">
+        <div class="container-fluid" class="mt-5">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2><i class="fas fa-chart-bar me-2"></i> Отчеты и аналитика</h2><hr>
+                <div>
+                    <button class="btn btn-outline-primary">
+                        <i class="fas fa-download me-2"></i>Экспорт
+                    </button>
+                </div>
+            </div>
+            
+            <div class="row mb-4">
+                <div class="col-md-3">
+                    <label class="form-label">Период с</label>
+                    <input type="date" class="form-control">
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">по</label>
+                    <input type="date" class="form-control">
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Тип отчета</label>
+                    <select class="form-select">
+                        <option value="occupancy">Загрузка номеров</option>
+                        <option value="financial">Финансовый отчет</option>
+                        <option value="clients">Статистика по клиентам</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">&nbsp;</label>
+                    <button class="btn btn-primary w-100">Сформировать</button>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header">
+                            Загрузка номеров по категориям
+                        </div>
+                        <div class="card-body">
+                            <canvas id="occupancyChart" height="300"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                   <!-- Финансовая карточка -->
+<div class="card">
+    <div class="card-header">
+        Финансовые показатели
+    </div>
+    <div class="card-body">
+        <div class="mb-3 total-income">
+            <h6>Общий доход</h6>
+            <h3 class="text-success">0 ₽</h3>
+        </div>
+        <div class="mb-3 average-check">
+            <h6>Средний чек</h6>
+            <h4>0 ₽</h4>
+        </div>
+        <div>
+            <h6>Загрузка гостиницы</h6>
+            <div class="progress" style="height: 25px;">
+                <div class="progress-bar bg-info" style="width: 0%">0%</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Клиентская карточка -->
+<div class="card mt-3">
+    <div class="card-header">
+        Клиентская статистика
+    </div>
+    <div class="card-body">
+        <div class="mb-3 new-clients">
+            <h6>Новые клиенты</h6>
+            <h4>0</h4>
+        </div>
+        <div class="mb-3 regular-clients">
+            <h6>Постоянные клиенты</h6>
+            <h4>0%</h4>
+        </div>
+        <div class="avg-stay-days">
+            <h6>Средний срок проживания</h6>
+            <h4>0 дней</h4>
+        </div>
+    </div>
+</div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+        </main>
+    </div>
+
+    <!-- Js Plugins -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/validation.js"></script>
+    <script src="js/function.js"></script>
+    <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <!-- Основная библиотека -->
+<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js'></script>
+<!-- Локализация -->
+<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.9/locales/ru.global.min.js'></script>
+</html>

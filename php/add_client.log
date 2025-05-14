@@ -1,0 +1,149 @@
+
+2025-05-06 14:53:01 - POST: Array
+(
+    [full_name] => Зайцев Петр Сергеевич
+    [date] => 2000-09-30
+    [pasport] => 12345672321
+    [phone] => +79807886652
+    [email] => aricrate@gmail.com
+)
+
+FILES: Array
+(
+)
+
+2025-05-06 16:34:28 - POST: Array
+(
+    [full_name] => 34 635 3456
+    [date] => 
+    [pasport] => чысвампиртоь
+    [phone] => 9807223522
+    [email] => aricrate@gmail.com
+)
+
+FILES: Array
+(
+)
+
+2025-05-06 16:52:42 - POST: Array
+(
+    [full_name] => Калмыкова Ари Максимовна
+    [date] => 2004-08-30
+    [pasport] => 1111111111
+    [phone] => +79807223522
+    [email] => aricrate@gmail.com
+)
+
+FILES: Array
+(
+)
+
+2025-05-06 16:53:31 - POST: Array
+(
+    [full_name] => Зайцев Петр Сергеевич
+    [date] => 2000-09-30
+    [pasport] => 1234567232
+    [phone] => +79807886652
+    [email] => aricrate@gmail.com
+)
+
+FILES: Array
+(
+)
+
+2025-05-06 17:05:18 - POST: Array
+(
+    [full_name] => Калмыкова Ари Максимовна
+    [date] => 2004-08-30
+    [pasport] => 1234567881
+    [phone] => +79807223522
+    [email] => aricrate@gmail.com
+)
+
+FILES: Array
+(
+)
+
+2025-05-06 17:07:00 - POST: Array
+(
+    [full_name] => Калив Петр Сергеевич
+    [date] => 2004-08-30
+    [pasport] => 1234567811
+    [phone] => +79807345522
+    [email] => aricrate@gmail.com
+)
+
+FILES: Array
+(
+)
+
+2025-05-06 17:08:10 - POST: Array
+(
+    [full_name] => Калив Петр Сергеевич
+    [date] => 2004-08-30
+    [pasport] => 1234567811
+    [phone] => +79807345522
+    [email] => aricrate@gmail.com
+    [child_lastName] => Калив
+    [child_firstName] => Алексей
+    [child_middleName] => Петрович
+    [child_birthDate] => 2010-08-30
+    [children] => Array
+        (
+            [0] => Array
+                (
+                    [lastName] => Калив
+                    [firstName] => Алексей
+                    [middleName] => Петрович
+                    [birthDate] => 2010-08-30
+                )
+
+        )
+
+)
+
+FILES: Array
+(
+)
+
+2025-05-06 17:14:17 - POST: Array
+(
+    [full_name] => Гончарова Алина Анатольевна
+    [date] => 2004-08-30
+    [pasport] => 8976346791
+    [phone] => +79807234566
+    [email] => aricrate@gmail.com
+    [child_lastName] => Калмыкова
+    [child_firstName] => Арина
+    [child_middleName] => Максимовна
+    [child_birthDate] => 2010-08-30
+    [children] => Array
+        (
+            [0] => Array
+                (
+                    [lastName] => Калмыкова
+                    [firstName] => Арина
+                    [middleName] => Максимовна
+                    [birthDate] => 2010-08-30
+                )
+
+        )
+
+)
+
+FILES: Array
+(
+)
+
+2025-05-06 17:14:38 - POST: Array
+(
+    [full_name] => Гончарова Алина Анатольевна
+    [date] => 2004-08-30
+    [pasport] => 8976346791
+    [phone] => +79807234566
+    [email] => aricrate@gmail.com
+)
+
+FILES: Array
+(
+)
