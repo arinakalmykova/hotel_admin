@@ -31,7 +31,7 @@ try {
 
     // 1. Обновляем основные данные клиента
     $stmt = $pdo->prepare("
-        UPDATE Клиент SET
+        UPDATE клиент SET
             фамилия = :lastName,
             имя = :firstName,
             отчество = :middleName,
@@ -54,13 +54,13 @@ try {
     ]);
 
     // 2. Удаляем старых детей клиента
-    $stmt = $pdo->prepare("DELETE FROM Дети WHERE код_клиента = ?");
+    $stmt = $pdo->prepare("DELETE FROM дети WHERE код_клиента = ?");
     $stmt->execute([$clientId]);
 
     // 3. Добавляем новых детей (если есть)
     if (isset($_POST['children']) && is_array($_POST['children'])) {
         $stmt = $pdo->prepare("
-            INSERT INTO Дети (
+            INSERT INTO дети (
                 код_клиента,
                 фамилия,
                 имя,

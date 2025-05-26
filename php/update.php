@@ -7,11 +7,11 @@ $stmt = $pdo->prepare("SELECT COUNT(код_номера) FROM номер WHERE �
 $stmt->execute();
 $count_rooms = (float)$stmt->fetchColumn();
 
-$stmt = $pdo->prepare("SELECT COUNT(*) FROM Заселение WHERE дата_заселения = CURDATE()");
+$stmt = $pdo->prepare("SELECT COUNT(*) FROM заселение WHERE дата_заселения = CURDATE()");
 $stmt->execute();
 $checkinsToday = $stmt->fetchColumn();
 
-$stmt = $pdo->prepare("SELECT COUNT(*) FROM Заселение WHERE дата_выселения = CURDATE()");
+$stmt = $pdo->prepare("SELECT COUNT(*) FROM заселение WHERE дата_выселения = CURDATE()");
 $stmt->execute();
 $checkoutsToday = $stmt->fetchColumn();
 

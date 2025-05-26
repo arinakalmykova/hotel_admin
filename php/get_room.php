@@ -20,10 +20,10 @@ try {
             н.статус AS status,
             н.площадь as area,
             у.название AS amenity
-        FROM Номер н
-        JOIN Категории_номера к ON н.код_категории = к.код_категории
-        JOIN Категория_удобства м ON к.код_категории = м.код_категории
-        JOIN Удобства у ON м.код_удобства = у.код_удобства
+        FROM номер н
+        JOIN категории_номера к ON н.код_категории = к.код_категории
+        JOIN категория_удобства м ON к.код_категории = м.код_категории
+        JOIN удобства у ON м.код_удобства = у.код_удобства
         WHERE н.код_номера = :id
     ");
     $stmt->execute([':id' => $roomId]);
@@ -50,7 +50,7 @@ try {
         }
     }
 // Получение всех удобств
-$allAmenitiesStmt = $pdo->query("SELECT код_удобства AS id, название AS name FROM Удобства");
+$allAmenitiesStmt = $pdo->query("SELECT код_удобства AS id, название AS name FROM удобства");
 $allAmenities = $allAmenitiesStmt->fetchAll(PDO::FETCH_ASSOC);
 
 // Ответ

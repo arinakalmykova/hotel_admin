@@ -8,7 +8,7 @@ unset($_SESSION['manager_name']);
 unset($_SESSION['admin_role']);
 
 // Не разрушаем всю сессию, если нужны другие данные
-// session_destroy();
+session_destroy();
 
 echo json_encode(['success' => true]);
 ?>

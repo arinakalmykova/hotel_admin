@@ -515,3 +515,89 @@ FILES: Array
 FILES: Array
 (
 )
+
+2025-05-15 22:36:30 - POST: Array
+(
+    [FIO] => Аксенов Петр Сергеевич
+    [phone] => +79807886699
+    [email] => aricrate@gmail.com
+    [pasport] => 1234567888
+    [birthdate] => 2004-08-30
+    [dateinput] => 2025-05-15
+    [dateoutput] => 2025-05-17
+    [adults] => 1
+    [children] => 1
+    [services] => Array
+        (
+            [0] => Array
+                (
+                    [id_services] => travel
+                    [value] => 1
+                )
+
+            [1] => Array
+                (
+                    [id_services] => breakfast
+                    [value] => 2
+                )
+
+        )
+
+    [childrenData] => Array
+        (
+            [0] => Array
+                (
+                    [lastname_child] => Аксенов
+                    [firstname_child] => Виктор
+                    [otch_child] => Петрович
+                    [birthdate_child] => 2019-08-30
+                )
+
+        )
+
+    [discount] => 1
+    [paymentOption] => предоплата 50%
+    [roomId] => 2
+    [roomPrice] => 2700.00
+)
+
+FILES: Array
+(
+)
+
+2025-05-26 11:17:41 - POST: Array
+(
+    [FIO] => Кравцов Олег Иванович
+    [phone] => +79807369912
+    [email] => krav@gmail.com
+    [pasport] => 1568912943
+    [birthdate] => 2004-08-30
+    [dateinput] => 2025-05-26
+    [dateoutput] => 2025-05-28
+    [adults] => 1
+    [children] => 0
+    [services] => Array
+        (
+            [0] => Array
+                (
+                    [id_services] => travel
+                    [value] => 1
+                )
+
+            [1] => Array
+                (
+                    [id_services] => breakfast
+                    [value] => 2
+                )
+
+        )
+
+    [discount] => 1
+    [paymentOption] => оплачено полностью
+    [roomId] => 1
+    [roomPrice] => 2500.00
+)
+
+FILES: Array
+(
+)

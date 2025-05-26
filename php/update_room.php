@@ -29,7 +29,7 @@ try {
     $pdo->beginTransaction();
 
     // SQL-запрос для обновления номера
-    $sql = "UPDATE Номер SET
+    $sql = "UPDATE номер SET
                 стоимость_за_ночь = :price,
                 статус = :status
             WHERE код_номера = :id";

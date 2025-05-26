@@ -445,3 +445,58 @@ FILES: Array
 FILES: Array
 (
 )
+
+2025-05-15 22:41:43 - POST: Array
+(
+    [status] => свободен
+    [price] => 3201.00
+    [id] => 3
+)
+
+FILES: Array
+(
+)
+
+2025-05-15 22:44:03 - POST: Array
+(
+    [status] => свободен
+    [price] => 3200.00
+    [id] => 3
+)
+
+FILES: Array
+(
+)
+
+2025-05-15 22:44:07 - POST: Array
+(
+    [status] => свободен
+    [price] => 3200.00
+    [id] => 3
+)
+
+FILES: Array
+(
+)
+
+2025-05-15 22:47:42 - POST: Array
+(
+    [status] => свободен
+    [price] => 3201.00
+    [id] => 3
+)
+
+FILES: Array
+(
+)
+
+2025-05-15 22:47:57 - POST: Array
+(
+    [status] => свободен
+    [price] => 3200.00
+    [id] => 3
+)
+
+FILES: Array
+(
+)

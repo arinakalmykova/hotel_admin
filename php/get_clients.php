@@ -4,29 +4,29 @@ require_once 'db.php';
 
 try {
     $query = "SELECT 
-                Клиент.код_клиента as id,
-                CONCAT(Клиент.фамилия, ' ', Клиент.имя, ' ', COALESCE(Клиент.отчество, '')) as full_name,
-                Клиент.номер_телефона as phone,
-                Клиент.почта as email,
-                (SELECT MAX(Заселение.дата_заселения) FROM Заселение WHERE Заселение.код_клиента = Клиент.код_клиента) as last_visit,
-                (SELECT COUNT(*) FROM Заселение WHERE Заселение.код_клиента = Клиент.код_клиента) as visits_count,
+                клиент.код_клиента as id,
+                CONCAT(клиент.фамилия, ' ', клиент.имя, ' ', COALESCE(клиент.отчество, '')) as full_name,
+                клиент.номер_телефона as phone,
+                клиент.почта as email,
+                (SELECT MAX(заселение.дата_заселения) FROM заселение WHERE заселение.код_клиента = клиент.код_клиента) as last_visit,
+                (SELECT COUNT(*) FROM заселение WHERE заселение.код_клиента = клиент.код_клиента) as visits_count,
                 CASE 
-                    WHEN (SELECT COUNT(*) FROM Заселение WHERE Заселение.код_клиента = Клиент.код_клиента) > 3 THEN 'Постоянный'
+                    WHEN (SELECT COUNT(*) FROM заселение WHERE заселение.код_клиента = клиент.код_клиента) > 3 THEN 'Постоянный'
                     ELSE 'Новый'
                 END as status,
                 -- Получаем детей для клиента
                 JSON_ARRAYAGG(
                     JSON_OBJECT(
-                        'lastName', Дети.фамилия,
-                        'firstName', Дети.имя,
-                        'middleName', Дети.отчество,
-                        'birthDate', Дети.дата_рождения
+                        'lastName', дети.фамилия,
+                        'firstName', дети.имя,
+                        'middleName', дети.отчество,
+                        'birthDate', дети.дата_рождения
                     )
                 ) as children
-              FROM Клиент
-              LEFT JOIN Дети ON Клиент.код_клиента = Дети.код_клиента
-              GROUP BY Клиент.код_клиента
-              ORDER BY Клиент.фамилия, Клиент.имя";
+              FROM клиент
+              LEFT JOIN дети ON клиент.код_клиента = дети.код_клиента
+              GROUP BY клиент.код_клиента
+              ORDER BY клиент.фамилия, клиент.имя";
     
     $stmt = $pdo->prepare($query);
     $stmt->execute();

@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'], $_POST['pass
         }
 
         // Получаем данные администратора
-        $stmt = $pdo->prepare("SELECT a.код_администратора, a.пароль, b.имя, b.фамилия 
+        $stmt = $pdo->prepare("SELECT a.код_администратора, a.пароль, b.имя, b.фамилия, b.роль
                               FROM админ_учет a
                               JOIN администратор b ON a.код_администратора = b.код_администратора
                               WHERE a.логин = ?");
@@ -44,9 +44,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'], $_POST['pass
         $_SESSION['admin_login'] = $login;
         $_SESSION['admin_name'] = $admin['имя'] . ' ' . $admin['фамилия'];
         $_SESSION['admin_role'] = 'admin';
-        // Устанавливаем куки с логином и паролем (НЕ РЕКОМЕНДУЕТСЯ)
+
         setcookie('mysql_user', $login, time() + 86400, '/'); // Куки на 1 день
-        setcookie('mysql_pass', $pass, time() + 86400, '/'); // Куки с паролем (НЕ БЕЗОПАСНО)
+        setcookie('mysql_pass', $pass, time() + 86400, '/'); // Куки с паролем
 
         // Возвращаем данные для localStorage
         echo json_encode([
@@ -55,7 +55,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'], $_POST['pass
             'admin_id' => $admin['код_администратора'],
             'name' => $admin['имя'],
             'lastname' => $admin['фамилия'],
-            'login' => $login
+            'login' => $login, 
+            'role' => $admin['роль']
         ]);
         exit;
 

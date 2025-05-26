@@ -11,7 +11,7 @@ if (!$id) {
 }
 
 try {
-    $stmt = $pdo->prepare("SELECT * FROM Бронь WHERE код_брони = ?");
+    $stmt = $pdo->prepare("SELECT * FROM бронь WHERE код_брони = ?");
     $stmt->execute([$id]);
     $booking = $stmt->fetch(PDO::FETCH_ASSOC);
     

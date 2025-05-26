@@ -23,12 +23,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset( $_POST['dateinput'], $_POST[
                         n.вместимость AS capacity,
                         n.стоимость_за_ночь AS price_per_night,
                         kn.название_категории AS category_name
-                    FROM Номер n
-                    JOIN Категории_номера kn ON n.код_категории = kn.код_категории
+                    FROM номер n
+                    JOIN категории_номера kn ON n.код_категории = kn.код_категории
                     WHERE n.вместимость >= :total_guests
                     AND n.код_номера NOT IN (
                         SELECT бр.код_номера
-                        FROM Бронь бр
+                        FROM бронь бр
                         WHERE 
                                 бр.дата_начала_бронирования <= :check_out
                                 AND бр.дата_окончания_бронирования >= :check_in

@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $pass = trim($data['pass']);
         
         // Проверяем учетные данные управляющего
-        $stmt = $pdo->prepare("SELECT *, b.фамилия, b.имя 
+        $stmt = $pdo->prepare("SELECT *, b.фамилия, b.имя,b.роль
                               FROM админ_учет a
                               JOIN администратор b ON a.код_администратора = b.код_администратора
                               WHERE a.логин = ? AND b.роль = 'управляющий'");
@@ -30,7 +30,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         echo json_encode([
             'success' => true,
-            'name' => $manager['имя'] . ' ' . $manager['фамилия']
+            'name' => $manager['имя'] . ' ' . $manager['фамилия'],
+            'role' => $manager['роль']
         ]);
         
     } catch (Exception $e) {

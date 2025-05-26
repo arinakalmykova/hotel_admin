@@ -14,6 +14,7 @@ $options = [
 ];
 try{
     $pdo = new PDO($dsn, $user, $passward, $options);
+
 }
 catch(PDOException $e){
     echo $e->getMessage();

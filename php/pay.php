@@ -52,7 +52,7 @@ try {
         // 3. Добавляем записи о платежах
         $stmt = $pdo->prepare("INSERT INTO платеж_за_доп_услуги 
             (код_клиента, код_услуги,дата_платежа) 
-            VALUES (?, ?, NOW())" 
+            VALUES (?, ?, NOW())" )
         
         foreach ($service_ids as $service_id) {
             if (isset($services_prices[$service_id])) {

@@ -10,7 +10,7 @@ try {
     $clientId = $_POST['client_id'];
     $query = "
         SELECT имя as firstName, фамилия as lastName,отчество as middleName,  дата_рождения as birthDate
-        FROM Дети
+        FROM дети
         WHERE код_клиента = :clientId
     ";
     

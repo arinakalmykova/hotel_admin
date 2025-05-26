@@ -23,7 +23,7 @@ try {
     $middleName = $nameParts[2] ?? null;
 
     // Вставляем клиента
-    $query = "INSERT INTO Клиент (
+    $query = "INSERT INTO клиент (
                 фамилия,
                 имя,
                 отчество,
@@ -60,7 +60,7 @@ try {
     // Вставляем детей, если есть
     foreach ($children as $child) {
         if (!empty($child['lastName']) && !empty($child['firstName']) && !empty($child['birthDate'])) {
-            $queryChild = "INSERT INTO Дети (
+            $queryChild = "INSERT INTO дети (
                             код_клиента,
                             фамилия,
                             имя,

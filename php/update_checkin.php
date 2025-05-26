@@ -17,7 +17,7 @@ try {
     // 1. Получаем код номера из заселения
     $stmt = $pdo->prepare("
         SELECT код_номера 
-        FROM Заселение 
+        FROM заселение 
         WHERE код_заселения = :id
     ");
     $stmt->execute([':id' => $id]);
@@ -26,7 +26,7 @@ try {
  
     // 2. Обновляем статус заселения
     $stmt = $pdo->prepare("
-        UPDATE Заселение 
+        UPDATE заселение 
         SET статус_заселения = :status 
         WHERE код_заселения = :id
     ");
@@ -40,7 +40,7 @@ try {
 
     // 4. Обновляем статус номера
     $stmt = $pdo->prepare("
-        UPDATE Номер 
+        UPDATE номер 
         SET статус = :room_status 
         WHERE код_номера = :room_id
     ");

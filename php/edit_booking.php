@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     try {
-        $stmt = $pdo->prepare("UPDATE Бронь SET 
+        $stmt = $pdo->prepare("UPDATE бронь SET 
         код_клиента = :guest_id,
         код_номера = :room_id,
         дата_начала_бронирования = :check_in,
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       'id' => $id
   ]);
   
-  $stmt = $pdo->prepare("UPDATE Заселение SET 
+  $stmt = $pdo->prepare("UPDATE заселение SET 
         код_номера = :room_id,
         дата_заселения = :check_in,
         дата_выселения = :check_out

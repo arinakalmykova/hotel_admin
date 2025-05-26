@@ -6,7 +6,7 @@ try {
     $clientId = $_POST['client_id'];
     $query = "
         SELECT дата_заселения as check_in, дата_выселения as check_out
-        FROM Заселение
+        FROM заселение
         WHERE код_клиента = :clientId
     ";
     

@@ -211,7 +211,8 @@ $('#managerLoginForm').submit(function(e) {
       localStorage.setItem('isManagerAuthenticated', 'true');
       localStorage.setItem('managerData', JSON.stringify({
         name: data.name,
-        login: login
+        login: login,
+        role:data.role
       }));
       
       // Закрываем модальное окно
@@ -242,7 +243,6 @@ function checkAdminRole() {
             alert('Ваша роль: ' + (data.role || 'не определена'));
         });
 }
-checkAdminRole();
 // localStorage.removeItem('isManagerAuthenticated');
 // location.reload();
 checkManagerStatus();
@@ -256,6 +256,10 @@ function checkManagerStatus() {
         .then(data => {
             if (data.isManager) {
                 $('#managerLogoutBtn').show();
+                 $('#openManagerLogin').hide();
+            }
+             else {
+                 $('#openManagerLogin').show();
             }
         });
 }
@@ -286,16 +290,19 @@ $('#managerLogoutBtn').click(function() {
 });
 
 function initManagerInterface() {
-  // Показываем специальные элементы для управляющего
-  $('#registerAdminBtn').show();
-  $('.manager-only').show();
-  
-  // Обновляем приветствие
-  const managerData = JSON.parse(localStorage.getItem('managerData'));
-  $('.user-name').html('<strong>' + managerData.name + '</strong>');
-  $('.user-role').text('meneger');
+    // Скрываем элементы администратора
+    $('.admin-only').hide();
+    
+    // Показываем специальные элементы для управляющего
+    $('#registerAdminBtn').show();
+    $('.manager-only').show();
+    
+    // Обновляем приветствие
+    const managerData = JSON.parse(localStorage.getItem('managerData'));
+    $('.user-name').html('<strong>' + managerData.name + '</strong>');
+    $('.user-role').text(managerData.role || 'Управляющий');
+    
 }
-
       function LoginAdmin(formData) {
         const data = new FormData();
         for (let key in formData) {
@@ -314,12 +321,12 @@ function initManagerInterface() {
                     id: result.admin_id,
                     login: formData.login,
                     name: result.name,
-                    lastname: result.lastname
+                    lastname: result.lastname,
+                    role: result.role
                 };
                 
                 localStorage.setItem('isAuthenticated', 'true');
                 localStorage.setItem('adminData', JSON.stringify(adminData));
-                
                 // Обновляем интерфейс
                 $('#loginOverlay').hide();
                 $('.page-wrapper').show();
@@ -328,7 +335,6 @@ function initManagerInterface() {
                     $('.sidebar-wrapper .user-info .user-name').html('<strong>' + result.lastname + ' ' + result.name + '</strong>');
                 
                 }
-                fetchEmployees();
             } else {
                 showError('authError', result.message || 'Ошибка входа');
             }
@@ -338,46 +344,47 @@ function initManagerInterface() {
             showError('authError', 'Ошибка соединения с сервером');
         });
     }
-    // Пример запроса к API
-function fetchEmployees() {
-    fetch('php/employees.php', {
-        credentials: 'include' // Отправляем куки с запросом
-    })
-    .then(response => {
-        if (!response.ok) throw new Error('Ошибка сети');
-        return response.json();
-    })
-    .then(data => {
-        console.log(data.message);
-        // Обработка данных
-    })
-    .catch(error => {
-        console.error('Ошибка:', error);
-    });
-}
-    function checkAuth() {
-        const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
-        const adminData = localStorage.getItem('adminData');
-        
-        if (isAuthenticated && adminData) {
-            try {
-                const admin = JSON.parse(adminData);
-                $('#loginOverlay').hide();
-                $('.page-wrapper').show();
-                
-                // Обновляем интерфейс с данными пользователя
-                if (admin.name && admin.lastname) {
-                    $('.sidebar-wrapper .user-info .user-name').html('<strong>' + admin.lastname + ' ' + admin.name + '</strong>');
-                }
-            } catch (e) {
-                console.error('Ошибка при чтении данных администратора:', e);
-                logout();
+   function checkAuth() {
+    const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
+    const isManagerAuthenticated = localStorage.getItem('isManagerAuthenticated') === 'true';
+    const adminData = localStorage.getItem('adminData');
+    const managerData = localStorage.getItem('managerData');
+    
+    if (isAuthenticated && adminData) {
+        try {
+            const admin = JSON.parse(adminData);
+            $('#loginOverlay').hide();
+            $('.page-wrapper').show();
+            
+            // Обновляем интерфейс с данными пользователя
+            if (admin.name && admin.lastname) {
+                $('.sidebar-wrapper .user-info .user-name').html('<strong>' + admin.lastname + ' ' + admin.name + '</strong>');
+                $('.user-role').text(admin.role || 'Администратор');
             }
-        } else {
-            $('#loginOverlay').show();
-            $('.page-wrapper').hide();
+        } catch (e) {
+            console.error('Ошибка при чтении данных администратора:', e);
+            logout();
         }
+    } else if (isManagerAuthenticated && managerData) {
+        try {
+            const manager = JSON.parse(managerData);
+            $('#loginOverlay').hide();
+            $('.page-wrapper').show();
+            
+            // Обновляем интерфейс для управляющего
+            if (manager.name) {
+                $('.sidebar-wrapper .user-info .user-name').html('<strong>' + manager.name + '</strong>');
+                $('.user-role').text(manager.role || 'Управляющий');
+            }
+        } catch (e) {
+            console.error('Ошибка при чтении данных управляющего:', e);
+            logout();
+        }
+    } else {
+        $('#loginOverlay').show();
+        $('.page-wrapper').hide();
     }
+}
 
     function registerAdmin(formData) {
         const data = new FormData();
@@ -1034,6 +1041,7 @@ $('#logout-btn').click(function(e) {
         // Инициализируем модальное окно
         const modal = new bootstrap.Modal(document.getElementById('editBookingModal'));
         modal.show();
+
         
         // Обработчик кнопки поиска номеров
         document.getElementById('findAvailableRoomsBtn').addEventListener('click', function() {
@@ -2537,7 +2545,7 @@ function initRoomActions() {
         })
         .then(result => {
             if (result.success) {
-                const modal = bootstrap.Modal.getInstance(addRoomModalEl);
+                const modal = new bootstrap.Modal(document.getElementById('addRoomModal'));
                 modal.hide();
                 alert('Данные номера успешно обновлены!');
                 // Здесь можно обновить список номеров, если нужно

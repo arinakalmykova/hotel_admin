@@ -2359,3 +2359,625 @@
     [end] => 2025-05-13
     [type] => occupancy
 )
+
+[2025-05-14 20:49:27] GET: Array
+(
+    [start] => 2025-04-14
+    [end] => 2025-05-14
+    [type] => occupancy
+)
+
+[2025-05-14 20:49:27] ERROR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hostel.Категории_номера' doesn't exist
+[2025-05-14 20:51:47] GET: Array
+(
+    [start] => 2025-04-14
+    [end] => 2025-05-14
+    [type] => occupancy
+)
+
+[2025-05-14 20:51:47] ERROR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hostel.Категории_номера' doesn't exist
+[2025-05-14 20:53:54] GET: Array
+(
+)
+
+[2025-05-14 20:53:54] ERROR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hostel.Категории_номера' doesn't exist
+[2025-05-14 20:55:44] GET: Array
+(
+    [start] => 2025-04-14
+    [end] => 2025-05-14
+    [type] => occupancy
+)
+
+[2025-05-14 20:55:44] ERROR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hostel.Категории_номера' doesn't exist
+[2025-05-14 20:56:33] GET: Array
+(
+    [start] => 2025-04-14
+    [end] => 2025-05-14
+    [type] => occupancy
+)
+
+[2025-05-14 20:56:33] ERROR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hostel.Категории_номера' doesn't exist
+[2025-05-14 22:15:20] GET: Array
+(
+    [start] => 2025-04-14
+    [end] => 2025-05-14
+    [type] => occupancy
+)
+
+[2025-05-14 22:15:20] ERROR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hostel.Номер' doesn't exist
+[2025-05-14 22:17:01] GET: Array
+(
+    [start] => 2025-04-14
+    [end] => 2025-05-14
+    [type] => occupancy
+)
+
+[2025-05-14 22:17:01] ERROR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hostel.Номер' doesn't exist
+[2025-05-14 22:18:40] GET: Array
+(
+)
+
+[2025-05-14 22:18:40] ERROR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hostel.Номер' doesn't exist
+[2025-05-14 22:22:03] GET: Array
+(
+)
+
+[2025-05-14 22:22:11] GET: Array
+(
+    [start] => 2025-04-14
+    [end] => 2025-05-14
+    [type] => occupancy
+)
+
+[2025-05-15 22:18:16] GET: Array
+(
+    [start] => 2025-04-15
+    [end] => 2025-05-15
+    [type] => occupancy
+)
+
+[2025-05-15 22:20:20] GET: Array
+(
+    [start] => 2025-04-15
+    [end] => 2025-05-15
+    [type] => occupancy
+)
+
+[2025-05-15 22:28:14] GET: Array
+(
+    [start] => 2025-04-15
+    [end] => 2025-05-15
+    [type] => occupancy
+)
+
+[2025-05-15 22:28:45] GET: Array
+(
+    [start] => 2025-04-15
+    [end] => 2025-05-15
+    [type] => occupancy
+)
+
+[2025-05-15 22:28:50] GET: Array
+(
+    [start] => 2025-04-15
+    [end] => 2025-05-15
+    [type] => occupancy
+)
+
+[2025-05-15 22:29:50] GET: Array
+(
+    [start] => 2025-04-15
+    [end] => 2025-05-15
+    [type] => occupancy
+)
+
+[2025-05-15 22:30:58] GET: Array
+(
+    [start] => 2025-04-15
+    [end] => 2025-05-15
+    [type] => occupancy
+)
+
+[2025-05-15 22:31:13] GET: Array
+(
+    [start] => 2025-04-15
+    [end] => 2025-05-15
+    [type] => occupancy
+)
+
+[2025-05-15 22:31:18] GET: Array
+(
+    [start] => 2025-04-15
+    [end] => 2025-05-15
+    [type] => occupancy
+)
+
+[2025-05-15 22:33:00] GET: Array
+(
+    [start] => 2025-04-15
+    [end] => 2025-05-15
+    [type] => occupancy
+)
+
+[2025-05-15 22:33:07] GET: Array
+(
+    [start] => 2025-04-15
+    [end] => 2025-05-15
+    [type] => occupancy
+)
+
+[2025-05-15 22:33:21] GET: Array
+(
+    [start] => 2025-04-15
+    [end] => 2025-05-15
+    [type] => occupancy
+)
+
+[2025-05-15 22:33:34] GET: Array
+(
+    [start] => 2025-04-15
+    [end] => 2025-05-15
+    [type] => occupancy
+)
+
+[2025-05-15 22:33:57] GET: Array
+(
+    [start] => 2025-04-15
+    [end] => 2025-05-15
+    [type] => occupancy
+)
+
+[2025-05-15 22:34:04] GET: Array
+(
+    [start] => 2025-04-15
+    [end] => 2025-05-15
+    [type] => occupancy
+)
+
+[2025-05-15 22:34:09] GET: Array
+(
+    [start] => 2025-04-15
+    [end] => 2025-05-15
+    [type] => occupancy
+)
+
+[2025-05-15 22:36:36] GET: Array
+(
+    [start] => 2025-04-15
+    [end] => 2025-05-15
+    [type] => occupancy
+)
+
+[2025-05-15 22:40:11] GET: Array
+(
+    [start] => 2025-04-15
+    [end] => 2025-05-15
+    [type] => occupancy
+)
+
+[2025-05-15 22:41:20] GET: Array
+(
+    [start] => 2025-04-15
+    [end] => 2025-05-15
+    [type] => occupancy
+)
+
+[2025-05-15 22:43:50] GET: Array
+(
+    [start] => 2025-04-15
+    [end] => 2025-05-15
+    [type] => occupancy
+)
+
+[2025-05-15 22:47:35] GET: Array
+(
+    [start] => 2025-04-15
+    [end] => 2025-05-15
+    [type] => occupancy
+)
+
+[2025-05-15 22:47:50] GET: Array
+(
+    [start] => 2025-04-15
+    [end] => 2025-05-15
+    [type] => occupancy
+)
+
+[2025-05-15 22:48:27] GET: Array
+(
+    [start] => 2025-05-15
+    [end] => 2025-05-18
+    [type] => occupancy
+)
+
+[2025-05-15 22:48:34] GET: Array
+(
+    [start] => 2025-05-15
+    [end] => 2025-05-18
+    [type] => occupancy
+)
+
+[2025-05-19 14:52:10] GET: Array
+(
+    [start] => 2025-04-19
+    [end] => 2025-05-19
+    [type] => occupancy
+)
+
+[2025-05-19 14:55:47] GET: Array
+(
+    [start] => 2025-04-19
+    [end] => 2025-05-19
+    [type] => occupancy
+)
+
+[2025-05-26 10:21:55] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 11:01:51] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 11:04:20] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 11:23:15] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 11:45:41] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 11:48:00] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 11:48:02] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 12:21:55] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 12:22:18] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 12:22:39] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 12:22:45] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 12:25:24] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 12:26:06] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 12:30:06] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 12:30:48] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 12:31:11] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 12:35:10] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 12:35:41] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 12:38:20] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 12:38:29] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 12:38:55] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 12:41:24] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 12:42:14] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 12:42:16] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 12:42:26] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 12:42:45] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 12:46:56] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 12:47:02] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 12:49:02] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 12:49:07] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 12:49:12] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 12:53:17] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 12:53:35] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 12:57:12] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 12:57:19] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 12:58:14] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 12:59:43] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 13:00:04] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 13:01:58] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 13:02:03] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 13:05:47] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 13:05:54] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 13:13:24] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 13:13:37] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 13:13:49] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 13:14:36] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 13:14:40] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 13:15:40] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 13:16:00] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 13:16:06] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 13:16:54] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 13:17:05] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)
+
+[2025-05-26 15:49:59] GET: Array
+(
+    [start] => 2025-04-26
+    [end] => 2025-05-26
+    [type] => occupancy
+)

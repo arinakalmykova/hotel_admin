@@ -22,9 +22,9 @@ try {
                 AND b.дата_начала_бронирования <= :endDate 
                 AND b.дата_окончания_бронирования >= :startDate 
                 THEN 1 ELSE 0 END) AS booked_rooms
-        FROM Категории_номера c
-        LEFT JOIN Номер r ON c.код_категории = r.код_категории
-        LEFT JOIN Бронь b ON r.код_номера = b.код_номера
+        FROM категории_номера c
+        LEFT JOIN номер r ON c.код_категории = r.код_категории
+        LEFT JOIN бронь b ON r.код_номера = b.код_номера
         GROUP BY c.код_категории, c.название_категории
     ");
     $stmt->execute(['startDate' => $startDate, 'endDate' => $endDate]);
@@ -37,16 +37,16 @@ try {
         COALESCE(AVG(all_payments.сумма_платежа), 0) AS average_check,
         ROUND(
             (SELECT COUNT(DISTINCT б.код_номера)
-             FROM Бронь б
+             FROM бронь б
              WHERE б.дата_начала_бронирования <= :endDate
                AND б.дата_окончания_бронирования >= :startDate
-            ) / (SELECT COUNT(*) FROM Номер) * 100, 2
+            ) / (SELECT COUNT(*) FROM номер) * 100, 2
         ) AS occupancy_percentage
     FROM (
         -- Платежи за номера
         SELECT п.сумма_платежа
-        FROM Бронь б
-        JOIN Платеж_за_номер п ON б.код_брони = п.код_брони
+        FROM бронь б
+        JOIN платеж_за_номер п ON б.код_брони = п.код_брони
         WHERE б.дата_начала_бронирования <= :endDate2 
           AND б.дата_окончания_бронирования >= :startDate2
 
@@ -54,9 +54,9 @@ try {
 
         -- Платежи за доп.услуги: нужно соединить с таблицей Доп_услуги
         SELECT ду.стоимость AS сумма_платежа
-        FROM Бронь б
-        JOIN Платеж_за_доп_услуги п2 ON б.код_брони = п2.код_брони
-        JOIN Доп_услуги ду ON п2.код_услуги = ду.код_услуги
+        FROM бронь б
+        JOIN платеж_за_доп_услуги п2 ON б.код_брони = п2.код_брони
+        JOIN доп_услуги ду ON п2.код_услуги = ду.код_услуги
         WHERE б.дата_начала_бронирования <= :endDate3
           AND б.дата_окончания_бронирования >= :startDate3
     ) AS all_payments
@@ -78,10 +78,10 @@ try {
         COUNT(DISTINCT б.код_клиента) AS total_clients,
         SUM(CASE WHEN visits.count_visits > 1 THEN 1 ELSE 0 END) AS returning_clients,
         ROUND(AVG(DATEDIFF(б.дата_окончания_бронирования, б.дата_начала_бронирования)), 1) AS avg_stay_days
-    FROM Бронь б
+    FROM бронь б
     JOIN (
         SELECT код_клиента, COUNT(*) AS count_visits
-        FROM Бронь
+        FROM бронь
         WHERE дата_окончания_бронирования >= :startDate
           AND дата_начала_бронирования <= :endDate
         GROUP BY код_клиента

@@ -12,7 +12,7 @@ try {
     $clientId = $_POST['id'];
 
     // Удаление клиента
-    $query = "DELETE FROM Клиент WHERE код_клиента = :clientId";
+    $query = "DELETE FROM клиент WHERE код_клиента = :clientId";
     $stmt = $pdo->prepare($query);
     $stmt->execute(['clientId' => $clientId]);
 

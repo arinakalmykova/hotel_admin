@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
     try {
 
-        $stmt = $pdo->prepare("DELETE FROM Бронь WHERE код_брони = ?");
+        $stmt = $pdo->prepare("DELETE FROM бронь WHERE код_брони = ?");
         $stmt->execute([$id]);
 
         

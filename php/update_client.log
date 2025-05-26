@@ -170,3 +170,175 @@ FILES: Array
 FILES: Array
 (
 )
+
+2025-05-15 22:38:07 - POST: Array
+(
+    [full_name] => Аксенов Петр Сергеевич
+    [date] => 2004-08-30
+    [pasport] => 1234567888
+    [phone] => +79807886611
+    [email] => aricrate@gmail.com
+    [child_lastName] => Аксенов
+    [child_firstName] => Виктор
+    [child_middleName] => Петрович
+    [child_birthDate] => 2019-08-30
+    [id] => 34
+    [children] => Array
+        (
+            [0] => Array
+                (
+                    [lastName] => Аксенов
+                    [firstName] => Виктор
+                    [middleName] => Петрович
+                    [birthDate] => 2019-08-30
+                )
+
+        )
+
+)
+
+FILES: Array
+(
+)
+
+2025-05-15 22:38:18 - POST: Array
+(
+    [full_name] => Аксенов Петр Сергеевич
+    [date] => 2004-08-30
+    [pasport] => 1234567888
+    [phone] => +79807886600
+    [email] => aricrate@gmail.com
+    [child_lastName] => Аксенов
+    [child_firstName] => Виктор
+    [child_middleName] => Петрович
+    [child_birthDate] => 2019-08-30
+    [id] => 34
+    [children] => Array
+        (
+            [0] => Array
+                (
+                    [lastName] => Аксенов
+                    [firstName] => Виктор
+                    [middleName] => Петрович
+                    [birthDate] => 2019-08-30
+                )
+
+        )
+
+)
+
+FILES: Array
+(
+)
+
+2025-05-15 22:39:31 - POST: Array
+(
+)
+
+FILES: Array
+(
+)
+
+2025-05-15 22:39:58 - POST: Array
+(
+)
+
+FILES: Array
+(
+)
+
+2025-05-15 22:39:59 - POST: Array
+(
+)
+
+FILES: Array
+(
+)
+
+2025-05-15 22:40:34 - POST: Array
+(
+    [full_name] => Аксенов Петр Сергеевич
+    [date] => 2004-08-30
+    [pasport] => 1234567888
+    [phone] => +79807886611
+    [email] => aricrate@gmail.com
+    [child_lastName] => Аксенов
+    [child_firstName] => Виктор
+    [child_middleName] => Петрович
+    [child_birthDate] => 2019-08-30
+    [id] => 34
+    [children] => Array
+        (
+            [0] => Array
+                (
+                    [lastName] => Аксенов
+                    [firstName] => Виктор
+                    [middleName] => Петрович
+                    [birthDate] => 2019-08-30
+                )
+
+        )
+
+)
+
+FILES: Array
+(
+)
+
+2025-05-15 22:40:41 - POST: Array
+(
+    [full_name] => Аксенов Петр Сергеевич
+    [date] => 2004-08-30
+    [pasport] => 1234567888
+    [phone] => +79807886600
+    [email] => aricrate@gmail.com
+    [child_lastName] => Аксенов
+    [child_firstName] => Виктор
+    [child_middleName] => Петрович
+    [child_birthDate] => 2019-08-30
+    [id] => 34
+    [children] => Array
+        (
+            [0] => Array
+                (
+                    [lastName] => Аксенов
+                    [firstName] => Виктор
+                    [middleName] => Петрович
+                    [birthDate] => 2019-08-30
+                )
+
+        )
+
+)
+
+FILES: Array
+(
+)
+
+2025-05-15 22:41:12 - POST: Array
+(
+    [full_name] => Аксенов Петр Сергеевич
+    [date] => 2004-08-30
+    [pasport] => 1234567888
+    [phone] => +79807886600
+    [email] => aricrate@gmail.com
+    [id] => 34
+)
+
+FILES: Array
+(
+)
+
+2025-05-15 22:41:12 - POST: Array
+(
+    [full_name] => Аксенов Петр Сергеевич
+    [date] => 2004-08-30
+    [pasport] => 1234567888
+    [phone] => +79807886600
+    [email] => aricrate@gmail.com
+    [id] => 34
+)
+
+FILES: Array
+(
+)

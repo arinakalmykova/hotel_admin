@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     try {
         // Удаляем заселение
-        $stmt = $pdo->prepare("DELETE FROM Заселение WHERE код_заселения = :id");
+        $stmt = $pdo->prepare("DELETE FROM заселение WHERE код_заселения = :id");
         $stmt->execute([':id' => $id]);
         
         if ($stmt->rowCount() > 0) {

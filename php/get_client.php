@@ -15,7 +15,7 @@ try {
             номер_паспорта as pasport,
             номер_телефона as phone,
             почта as email
-        FROM Клиент
+        FROM клиент
         WHERE код_клиента = ?
     ");
     $stmt->execute([$clientId]);
@@ -28,7 +28,7 @@ try {
             имя as firstName,
             отчество as middleName,
             дата_рождения as birthDate
-        FROM Дети
+        FROM дети
         WHERE код_клиента = ?
     ");
     $stmt->execute([$clientId]);
